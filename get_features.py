@@ -197,44 +197,7 @@ def personalized_features(domain='stat', fs = 100):
             for col in range(data.shape[1]):
                 
                 aux  = []
-                
-                # if domain == 'stat':
-                #     # Absolute Energy
-                #     aux.append( np.sum(data.iloc[:,col]**2) )
-                #     # Peak
-                #     aux.append( max(abs(data.iloc[:,col])) )
-                #     # Mean
-                #     aux.append( np.mean(data.iloc[:,col]) )
-                #     # Mean Square                
-                #     aux.append( np.mean(data.iloc[:,col]**2) )
-                #     # Root Mean Square                
-                #     aux.append( np.sqrt(np.mean(data.iloc[:,col]**2)) )
-                #     # Variance
-                #     # aux.append( np.std(data.iloc[:,col])**2 )
-                #     # Standard Deviation
-                #     aux.append( np.std(data.iloc[:,col]) )
-                #     # Skewness
-                #     aux.append(tsfel.feature_extraction.features.skewness(data.iloc[:,col]))
-                #     # Kurtosis
-                #     aux.append(tsfel.feature_extraction.features.kurtosis(data.iloc[:,col]))
-                #     # Crest Factor
-                #     aux.append(max(abs(data.iloc[:,col]))/np.sqrt(np.mean(data.iloc[:,col]**2)))
-                #     # K-Factor
-                #     aux.append(max(abs(data.iloc[:,col]))*np.sqrt(np.mean(data.iloc[:,col]**2)))
-                #     # Clearance Factor 
-                #     aux.append(max(abs(data.iloc[:,col])) / (np.mean(np.sqrt((abs(data.iloc[:,col]))))**2))
-                #     # Impulse Factor
-                #     aux.append(max(abs(data.iloc[:,col])) / np.mean(abs(data.iloc[:,col])) )
-                #     # Shape Factor
-                #     aux.append(np.sqrt(np.mean(data.iloc[:,col]**2)) / np.mean(abs(data.iloc[:,col])))
-                
-                #     X.append(aux)
-                    
-                # elif domain == 'mfcc':
-                #     mfcc_coef = psf_mfcc(np.array(data.iloc[:,col]), fs)
-                #     X.append( mfcc_coef.reshape((mfcc_coef.shape[0]*mfcc_coef.shape[1],1)).ravel() )
-                
-                # el
+               
                 if domain == 'spectral':
                     aux.append(tsfel.feature_extraction.features.spectral_centroid(data.iloc[:,col], fs=fs))
                     aux.append(tsfel.feature_extraction.features.spectral_decrease(data.iloc[:,col], fs=fs))
@@ -269,62 +232,6 @@ get_signals()
 vibwall_features(domain='stat', fs=100)
 vibwall_features(domain='mfcc', fs=100)
 personalized_features(domain='spectral', fs=100)
-
-
-
-
-
-
-
-#%% Rascunho Pra saber tamanho dos menores sinais
-# num =0
-# signal = []
-# for line in lines[1:-1]:
-#     num = num + 1
-#     value = line.rstrip().split(',')
-#     signal.append(float(value[2]))  
-
-# if len(lines) < 500:
-#     print('Numero de Linhas: ' + str(len(lines)))
-#     pl.plot(signal)
-#     pl.show()
-
-#########
-# baker_brics - good
-# Numero de Linhas: 357
-# Numero de Linhas: 151
-# Numero de Linhas: 142
-# Numero de Linhas: 443
-# Numero de Linhas: 105
-# baker_brics - bad
-# baker_hall - good
-# Numero de Linhas: 179
-# Numero de Linhas: 289
-# Numero de Linhas: 176
-# Numero de Linhas: 467
-# Numero de Linhas: 43
-# baker_hall - bad
-# Numero de Linhas: 119
-# Numero de Linhas: 179
-# Numero de Linhas: 487
-# Numero de Linhas: 496
-# Numero de Linhas: 492
-# Numero de Linhas: 498
-# office_wall - good
-# Numero de Linhas: 81
-# Numero de Linhas: 204
-# Numero de Linhas: 183
-# Numero de Linhas: 124
-# Numero de Linhas: 100
-# office_wall - bad
-# Numero de Linhas: 137
-# Numero de Linhas: 31
-# Numero de Linhas: 161
-######
-
-
-
-
 
 
 
