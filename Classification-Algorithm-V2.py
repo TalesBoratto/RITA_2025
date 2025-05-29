@@ -272,21 +272,12 @@ for i in range(bp.shape[1]):
     pl.xlabel('')
     pl.yticks(fontsize=16)
     pl.xticks(fontsize=16, rotation=0)
-#<<<<<<< HEAD
-    pl.savefig(fname = './Images/' + str(root_path) + '/' + str(model).split('(')[0] + '-' + str(GS) + '-'+ str(domain) + '_'+ str(i)+ '.pdf',
-#=======
-    #pl.savefig(fname = './Images/' + str(root_path) + '/' + str(model).split('(')[0] + '-' + str(GS) + '-' + str(domain)+'feature_' + str(i)+'.pdf',
-#>>>>>>> 35ee365111dd1f8c094a44d892cca04dc0a72060
+    pl.savefig(fname = './Images/' + str(root_path) + '/' + str(model).split('(')[0] + '-' + str(GS) + '-' + str(domain)+'feature_' + str(i)+'.pdf',
                 format = "pdf", bbox_inches = "tight")
     pl.show()
 
 
-
-#<<<<<<< HEAD
-# # #%%
-#=======
 #%%
-#>>>>>>> 35ee365111dd1f8c094a44d892cca04dc0a72060
 cm = cm/cm.mean()
 cm = 100 * cm / cm.sum(axis=1, keepdims=True)
 
@@ -296,7 +287,6 @@ disp.plot(ax=ax, cmap=pl.cm.Blues, values_format='.2f')
 # pl.title( title )
 pl.xlabel('Predicted Class')
 pl.ylabel('True Class')
-#<<<<<<< HEAD
 pl.savefig(fname=('./Images/' + str(root_path) + '/CM-stat-spectral-' + str(model).split('(')[0] + '-' + str(GS) + '-' + str(domain) + '.pdf'),
             format="pdf", bbox_inches="tight")
 pl.show()
@@ -326,34 +316,3 @@ pl.legend('')
 pl.savefig(fname = './Images/' + str(root_path) + '/Features_Importances_' + str(model).split('(')[0] + '-' + str(GS) + '-'+ str(domain) + '_'+ str(i)+ '.pdf',
             format = "pdf", bbox_inches = "tight")
 pl.show()
-
-
-#%%
-# import pylab as pl
-# import pandas as pd
-
-# DT = pd.read_csv('FI-DT.csv')
-# RF = pd.read_csv('FI-RF.csv')
-
-# a = DT.copy()
-# b = RF.copy()
-
-# c = a.sort_values('0')[::-1]
-# c = c.merge(b, how='inner', on='Unnamed: 0')
-# c.index = c['Unnamed: 0']
-# c.drop(columns = ['Unnamed: 0'], inplace=True)
-# c.columns = ['Decision Tree', 'Random Forest']
-
-
-# pl.figure(dpi=500)
-# c.plot(kind='bar', width = 0.7, subplots=True)
-# # pl.ylabel('Frequency of Seleciom', fontsize=16)
-# pl.xlabel('')
-# pl.legend('')
-# # pl.yticks(fontsize=14)
-# pl.xticks(fontsize=14, rotation=90)
-#=======
-pl.savefig(fname=('./Images/' + str(root_path) + '/CM-' + str(model).split('(')[0] + '-' + str(GS) + '-' + str(domain) + '.pdf'),
-            format="pdf", bbox_inches="tight")
-pl.show()
-#>>>>>>> 35ee365111dd1f8c094a44d892cca04dc0a72060
